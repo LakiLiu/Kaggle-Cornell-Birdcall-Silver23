@@ -19,7 +19,7 @@ This repo is about [the Kaggle](https://www.kaggle.com/c/birdsong-recognition) c
 
 ## Feature Engineering 
 ### (A) Audio Feature Engineering
-This step is to do the audio transformation with **librosa** and **Albumentations**
+This step is to do the audio transformation with ``librosa`` and ``Albumentations``
 
 📌 Audio Transformation
 - Fourier Transform : Function that transform  gets a signal in the time domain as input, and outputs its decomposition into frequencies. 
@@ -32,7 +32,7 @@ This step is to do the audio transformation with **librosa** and **Albumentation
 - Polarity Inversion
 
 ### (B) Image Feature Engineering 
-This step transform the audio (after feature engineering) into image, than doing the image feature enginnering with **Pytorch**.
+This step transform the audio (after feature engineering) into image, than doing the image feature enginnering with ``Pytorch``.
 
 📌 Image Augmentation
 - Rotate(10, p=0.33),
@@ -57,3 +57,8 @@ Since the model give a label for each 15s, we need to do the postprocessing
 
 📌 **Moving Window** 
 - we treat 15s-prediction as a window, then moving it to predict each 5s. In total each 5s would be predicted by 11 times, then we take the average for probability. The label is then for then decided.
+
+## Reflection 
+- We finally submit 2 **single ResNeSt models**. We should have blended more other models to drive more robust performance.
+- Moving window is very effective method, but it is time-consuming. Considering the max prediction time of 2 hours, it limits our model development at the same time.
+- In conclusion, this competition gives me more ideas about audio and image processing 🐦
