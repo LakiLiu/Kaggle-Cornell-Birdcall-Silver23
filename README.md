@@ -45,6 +45,7 @@ This step transform the audio (after feature engineering) into image, than doing
 
 ## Model
 We tried Sound Event Detection Model (SED) but we found the ResNeSt Model has a better performance
+
 **We use 15s data to train, therefore the test prediction is for each 15s.**
 - Pretrained Model : resnest50_fast_1s1x64d
 - Attention block
@@ -59,6 +60,6 @@ Since the model give a label for each 15s, we need to do the postprocessing
 - we treat 15s-prediction as a window, then moving it to predict each 5s. In total each 5s would be predicted by 11 times, then we take the average for probability. The label is then for then decided.
 
 ## Reflection 
-- We finally submit 2 **single ResNeSt models**. We should have blended more other models to drive more robust performance.
-- Moving window is very effective method, but it is time-consuming. Considering the max prediction time of 2 hours, it limits our model development at the same time.
+- We finally submit  **2 single ResNeSt models**. We should have blended more other models to drive more robust performance.
+- **Moving window** is very effective method, but it is time-consuming. Considering the max prediction time of 2 hours, it limits our model development at the same time.
 - In conclusion, this competition gives me more ideas about audio and image processing 🐦
